@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using CommandAPI.Data;
+using AutoMapper;
 
 namespace CommandAPI
 {
@@ -29,6 +30,9 @@ namespace CommandAPI
           services.AddDbContext<CommandContext>(opt => opt.UseSqlite($"Data Source={dbPath}"));
 
           services.AddControllers();
+
+          services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
           services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
         }
 
