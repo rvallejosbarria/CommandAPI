@@ -1,6 +1,6 @@
-resource "azurerm_resource_group" "myf1rg" {
+resource "azurerm_resource_group" "cmdrg" {
     location = "East US"
-    name     = "f1-rg"
+    name     = "cmd-rg"
     
     tags = {
         environment = var.env_id
