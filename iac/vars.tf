@@ -15,3 +15,8 @@ variable "subscription_id" {
     description = "The Azure subscription id"
     default = "8a306c2f-2476-49f7-956f-365a68793061"
 }
+
+variable "sql_pass" {
+    type = string
+    description = "The SQL Server password"
+}
