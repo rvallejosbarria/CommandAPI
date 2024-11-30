@@ -48,3 +48,19 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - name: build and deploy to ACR
+        uses: azure/container-apps-deploy-action@v1
+        env:
+          IMAGE_TAG: ${{ needs.build-and-deploy.outputs.short_sha }}
+          ACR_SERVER: ${{ vars.ACR_SERVER }}
+        with:
+          registryUrl: ${{ vars.ACR_SERVER }}
+          imageToDeploy: $ACR_SERVER/cmdapp:$IMAGE_TAG
+          targetPort: 8080
+          ingress: external
+          containerAppName: cmdapp-dev
+          containerAppEnvironment: cmd-api-dev
+          resourceGroup: cmd-rg
+          environmentVariables: 
+            ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080
