@@ -59,7 +59,7 @@ jobs:
           imageToDeploy: $ACR_SERVER/cmdapp:$IMAGE_TAG
           targetPort: 8080
           ingress: external
-          containerAppName: cmdapp-dev
+          containerAppName: cmd-api-dev
           containerAppEnvironment: cmd-api-dev
           resourceGroup: cmd-rg
           environmentVariables: 
