@@ -22,4 +22,4 @@ jobs:
         with:
           login-server: ${{ vars.ACR_SERVER }}
           username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          password: ${{ secrets.ACR_PASSWORD }}
