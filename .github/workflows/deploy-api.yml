@@ -2,7 +2,7 @@ name: Build and deploy API to Azure
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
